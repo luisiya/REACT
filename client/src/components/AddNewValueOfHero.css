@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+}
+input
+{
+  display: none;
+}
+
+.form select{
+  /*font-size: 100%;*/
+  width: 70%;
+  margin:20px 180px 0 40px ;
+  height:30px;
+  border:none;
+  border-bottom: darkgrey solid;
+}

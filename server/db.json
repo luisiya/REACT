@@ -1,0 +1,66 @@
+{
+  "heroes": [
+    {
+      "name": "MissKetty",
+      "strength": 7,
+      "intelligence": 8,
+      "speed": 7,
+      "id": 12
+    },
+    {
+      "name": "Superman",
+      "strength": "7",
+      "intelligence": "4",
+      "speed": "3",
+      "id": 34
+    },
+    {
+      "name": [
+        "d",
+        "d",
+        "d",
+        {
+          "name": "ddd",
+          "strength": "0",
+          "intelligence": "0",
+          "speed": "0",
+          "id": 46
+        }
+      ],
+      "strength": "0",
+      "intelligence": "0",
+      "speed": "0",
+      "id": 47
+    },
+    {
+      "name": [
+        {
+          "name": "Wolf",
+          "strength": "1",
+          "intelligence": "1",
+          "speed": "1",
+          "id": 48
+        }
+      ],
+      "strength": "1",
+      "intelligence": "1",
+      "speed": "1",
+      "id": 49
+    },
+    {
+      "name": "Monster",
+      "strength": "3",
+      "intelligence": "2",
+      "speed": "4",
+      "id": 50
+    },
+    {
+      "name": "Superman",
+      "strength": "4",
+      "intelligence": "4",
+      "speed": "5",
+      "id": 51
+    }
+  ],
+  "squads": []
+}

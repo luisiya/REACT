@@ -1,0 +1,45 @@
+@value primary-dark-color from '../theme/colors.css';
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+}
+
+.text {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 0;
+  margin-right: 24px;
+  color: primary-dark-color;
+}
+
+.text::after {
+  display: inline-block;
+  content: '';
+  background-color: primary-dark-color;
+  width: 1px;
+}
+
+.hero button{
+   border-radius:100%;
+
+ }
+.hero button:nth-child(2){
+   background-color: yellowgreen;
+ }
+.hero button:nth-child(2):hover{
+  background-color: green;
+}
+.hero button:nth-child(3){
+  background-color: lightcoral;
+}
+.hero button:nth-child(3):hover{
+  background-color: firebrick;
+}
