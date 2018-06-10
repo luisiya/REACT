@@ -22,6 +22,19 @@ export const getUserFromData = () =>
     )
     .catch(handlePromiseError);
 
+export const getDataFromSquad = () =>
+      axios
+        .get('/api/squads')
+        .then(response =>
+      processApiResponse({
+        response,
+        successCode: 200,
+        errorMessage: 'Error while fetching',
+      }),
+      )
+.catch(handlePromiseError);
+
+
 export const getSquadFromData = () =>
   axios
     .get('/api/squads')
@@ -69,6 +82,8 @@ export const deleteHeroFromSquad = id =>
       }),
     )
     .catch(handlePromiseError);
+
+
 
 export const AddToSquad = hero =>
   axios

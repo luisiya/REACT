@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Button from './shared/Button';
 import Input from './shared/Input';
 import styles from './AddNewValueOfHero.css';
 import CreateSelectOptions from './CreateSelectOptions';
-import * as api from '../utils/api';
+
 
 
 export default class AddNewValueOfHero extends Component {
+  static propTypes = {
 
-  state = {
-
-    users:[1] ,
-    filter:"",
-    isLoading: false,
-    strength: "",
-    intelligence:"",
-    speed:"",
+    addNewHero: PropTypes.func.isRequired
 
   };
+  state = {
+
+    name:[],
+    strength: "",
+    intelligence: "",
+    speed: "",
+     };
 
 
   addNewNameHero = (e) =>{
 
   const newName = e.target.value;
-  this.setState({users: newName})
+  this.setState({name: newName})
 
   };
 
@@ -49,34 +50,6 @@ export default class AddNewValueOfHero extends Component {
   };
 
 
- addNewHero = (event) =>{
-
-   event.preventDefault();
-       const hero = {
-
-       "name": this.state.users,
-       "strength": this.state.strength,
-       "intelligence": this.state.intelligence,
-       "speed": this.state.speed
-     };
-
-     this.setState({ isLoading: true });
-
-     api.addNewHero(hero).then(({ data, error }) => {
-       if (error) {
-         console.log(error);
-         this.setState({ isLoading: false });
-         return;
-       }
-
-       this.setState(state => ({
-
-         users: [...state.heroes, data],
-         isLoading: false,
-       }));
-
-     });
-   };
 
 
   render() {
@@ -92,8 +65,8 @@ export default class AddNewValueOfHero extends Component {
           <CreateSelectOptions number="10" title="Intelligence" onChange={this.addNewIntelligence} />
           <CreateSelectOptions number="10" title="Speed" onChange={this.addNewSpeed}/>
         </div>
-        <div className={styles.actions}>
-        <Button type="submit" text="Add hero" onClick={this.addNewHero}/>
+        <div className={styles.actions} style={{ margin: '20px 0 0 0' }}>
+        <Button type="submit" text="Add hero"  onClick={()=> this.props.addNewHero(this.state)}/>
 
       </div>
       </form>

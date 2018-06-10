@@ -10,20 +10,15 @@ export default class Hero extends Component {
   static propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    onDeleteHero: PropTypes.func,
-    onAddToSquad: PropTypes.func,
+    deleteHero: PropTypes.func,
+    addToSquad: PropTypes.func,
     edit: PropTypes.bool,
   };
-  static defaultProps = {
-    edit: true,
-  }
+  // static defaultProps = {
+  //   edit: true,
+  // }
 
   state = { isBeingEdited: false, users:[] };
-
-  handleDelete = () => this.props.onDeleteHero(this.props.id);
-
-
-  handleAddToSquad = () => this.props.onAddToSquad(this.props);
 
 
   handleInfo = () => console.log(`
@@ -37,6 +32,7 @@ export default class Hero extends Component {
 
     const { name } = this.props;
     const { edit } = this.props;
+    const { id } = this.props;
     const { isBeingEdited } = this.state;
 
 
@@ -46,21 +42,18 @@ export default class Hero extends Component {
         {isBeingEdited ? (
           <AddNewValueOfHero
             name={name}
-
           />
         ) : (
           <div className={styles.hero}>
             <p className={styles.text}>{name}</p>
-
             <div className={styles.actions}>
-
-              <IconButton  onClick={this.handleDelete} text="&#10006;" about="Delete_Hero"/>
+              <IconButton  onClick={() =>this.props.deleteHero(id)} text="&#10006;" about="Delete_Hero"/>
               <IconButton onClick={this.handleInfo} text="&#9937;" about="About_Hero"/>
               {edit ? (
                 <span></span>
                   )
               :
-                <IconButton onClick={this.handleAddToSquad} text="&#10004;" about="Abd_Hero_to_Squad"/>
+                <IconButton onClick={()=>this.props.addToSquad(id)} text="&#10004;" about="Abd_Hero_to_Squad"/>
               }
 
             </div>

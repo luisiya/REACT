@@ -10,6 +10,7 @@ export default class HeroesFilter extends Component {
   };
 
   handleChange = e => {
+
     this.props.onFilterChange(e.target.value);
   };
 

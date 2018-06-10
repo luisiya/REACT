@@ -14,7 +14,7 @@ const HeroesList = ({ value, users, ...props }) => (
 );
 
 HeroesList.propTypes = {
-  value:PropTypes.bool.isRequired,
+  value:PropTypes.string.isRequired,
   users: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
