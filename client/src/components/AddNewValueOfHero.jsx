@@ -33,19 +33,19 @@ export default class AddNewValueOfHero extends Component {
 
     const newStrength = e.target.value;
 
-    this.setState({strength:newStrength});
+    this.setState({strength:Number(newStrength)});
 
   };
   addNewIntelligence =(e) =>{
     const newIntelligence = e.target.value;
 
-    this.setState({intelligence:newIntelligence});
+    this.setState({intelligence:Number(newIntelligence)});
 
   };
   addNewSpeed =(e)=>{
     const newSpeed = e.target.value;
 
-    this.setState({speed:newSpeed});
+    this.setState({speed:Number(newSpeed)});
 
   };
 

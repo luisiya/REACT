@@ -8,6 +8,9 @@ export const getVisibleSquad = (users, idFromSquad) =>
 users.filter(user => idFromSquad.includes(user.id));
 
 
+
+
+
 // readySquad
 // export const getVisibleReadySquad = (users, idFromSquad) =>
 //

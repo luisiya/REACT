@@ -71,8 +71,7 @@ class App extends Component {
 
   addToSquad = (id) => {
 
-    const hero =  this.state.users.filter(user=>user.id === id );
-
+    const hero =  this.state.users.filter(user=>user.id === id )[0];
       this.setState(state => ({
 
         idFromSquad:[...state.idFromSquad, id],
@@ -110,26 +109,34 @@ class App extends Component {
 
   };
   savedSquad = () =>{
+    const hero={};
+   const readySquad = this.state.readySquad;
+   hero.heroes = readySquad;
+    hero.stats = {};
+     hero.stats.str = readySquad.reduce((totals, p) => (totals + p.strength), 0);
+     hero.stats.int = readySquad.reduce((totals, p) => (totals + p.intelligence), 0);
+     hero.stats.spd = readySquad.reduce((totals, p) => (totals + p.speed), 0);
 
-    const hero = this.state.readySquad;
-    api.AddToSquad(hero).then(({ data, error}) => {
-          if (error) {
-            console.log(error);
-            this.setState({isLoading: false});
-            return;
-          }
+    console.log(hero)
 
-          this.setState(state => ({
-
-            idFromSquad:[],
-            savedSquad:[...state.readySquad],
-            isLoading: false,
-            move:true,
-            reset:false,
-          }));
-          console.log(data)
-
-        });
+    // api.AddToSquad(hero).then(({ data, error}) => {
+    //       if (error) {
+    //         console.log(error);
+    //         this.setState({isLoading: false});
+    //         return;
+    //       }
+    //
+    //       this.setState(state => ({
+    //
+    //         idFromSquad:[],
+    //         savedSquad:[...state.readySquad],
+    //         isLoading: false,
+    //         move:true,
+    //         reset:false,
+    //       }));
+    //       console.log(data)
+    //
+    //     });
 
   };
   deleteSquad=(id)=>{
@@ -140,6 +147,7 @@ class App extends Component {
       reset:true,
       idFromSquad:[],
       move:false,
+      readySquad:[],
       ids:[],
 
     });
