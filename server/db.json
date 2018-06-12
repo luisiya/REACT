@@ -55,6 +55,13 @@
       "intelligence": "",
       "speed": "",
       "id": 19
+    },
+    {
+      "name": "Lux",
+      "strength": 1,
+      "intelligence": 1,
+      "speed": 2,
+      "id": 20
     }
   ],
   "squads": [
@@ -92,37 +99,6 @@
     {
       "heroes": [
         {
-          "name": "Robot",
-          "strength": 2,
-          "intelligence": 3,
-          "speed": 3,
-          "id": 15
-        },
-        {
-          "name": "Spiderman",
-          "strength": 2,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 14
-        }
-      ],
-      "stats": {
-        "str": 4,
-        "int": 5,
-        "spd": 6
-      },
-      "id": 5
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
           "name": "Spidermen",
           "strength": 2,
           "intelligence": 1,
@@ -138,107 +114,11 @@
         }
       ],
       "stats": {
-        "str": 4,
-        "int": 4,
-        "spd": 8
-      },
-      "id": 6
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        }
-      ],
-      "stats": {
         "str": 3,
-        "int": 3,
+        "int": 2,
         "spd": 5
       },
-      "id": 7
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        }
-      ],
-      "stats": {
-        "str": 3,
-        "int": 3,
-        "spd": 5
-      },
-      "id": 9
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        }
-      ],
-      "stats": {
-        "str": 3,
-        "int": 3,
-        "spd": 5
-      },
-      "id": 10
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        }
-      ],
-      "stats": {
-        "str": 3,
-        "int": 3,
-        "spd": 5
-      },
-      "id": 11
+      "id": 4
     }
   ]
 }

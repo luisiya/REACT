@@ -21,8 +21,8 @@ class App extends Component {
     isLoading: false,
     idFromSquad: [],
     readySquad: [],
-    savedSquad:[],
-    ids: [],
+    savedSquad: [],
+    idFromList: [],
   };
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class App extends Component {
     });
   };
 
-  getDataFromSquads =()=>{
+  getDataFromSquads = () => {
     this.setState({isLoading: true});
     api.getDataFromSquads().then(({data, error}) => {
       if (error) {
@@ -75,10 +75,11 @@ class App extends Component {
 
   addToSquad = (id) => {
 
+
     const hero = this.state.users.filter(user => user.id === id)[0];
     this.setState(state => ({
       idFromSquad: [...state.idFromSquad, id],
-      ids: [...state.idFromSquad, id],
+      idFromList: [...state.idFromSquad, id],
       readySquad: [...state.readySquad, hero],
     }));
   };
@@ -103,13 +104,15 @@ class App extends Component {
 
     this.setState(state => ({
       idFromSquad: state.idFromSquad.filter(user => user !== id),
-      ids: state.ids.filter(hero =>hero !== id),
+      idFromList: state.idFromList.filter(hero => hero !== id),
 
     }));
-console.log(this.state.idFromSquad)
+
   };
 
   savedSquad = () => {
+
+
     const hero = {};
     const readySquad = this.state.readySquad;
     hero.heroes = readySquad;
@@ -117,29 +120,29 @@ console.log(this.state.idFromSquad)
     hero.stats.str = readySquad.reduce((totals, p) => (totals + p.strength), 0);
     hero.stats.int = readySquad.reduce((totals, p) => (totals + p.intelligence), 0);
     hero.stats.spd = readySquad.reduce((totals, p) => (totals + p.speed), 0);
-    console.log(hero)
-    api.AddToSquad(hero).then(({ data, error}) => {
-        if (error) {
-          console.log(error);
-          this.setState({isLoading: false});
-          return;
-        }
 
-      this.setState(state=> ({
+    api.AddToSquad(hero).then(({data, error}) => {
+      if (error) {
+        console.log(error);
+        this.setState({isLoading: false});
+        return;
+      }
+
+
+      this.setState(state => ({
 
         idFromSquad: [],
-
-        savedSquad:[...state.savedSquad, data],
+        users: state.users.filter(user => state.idFromList.indexOf(user.id) === -1),
+        savedSquad: [...state.savedSquad, data],
         isLoading: false,
 
       }));
-      console.log(this.state.savedSquad)
+
     });
 
   };
   deleteSquad = (id) => {
 
-    console.log(id)
     this.setState({isLoading: true});
     api.deleteSquad(id).then(({error}) => {
       if (error) {
@@ -148,7 +151,7 @@ console.log(this.state.idFromSquad)
         return;
       }
       this.setState(state => ({
-        savedSquad: state.users.filter(hero => hero.id !== id),
+        savedSquad: state.savedSquad.filter(hero => hero.id !== id),
         isLoading: false,
       }));
     });
@@ -157,16 +160,17 @@ console.log(this.state.idFromSquad)
 
   ResetSquad = () => {
     this.setState({
+
       idFromSquad: [],
-      ids: [],
+      idFromList: [],
 
     });
   }
 
   render() {
 
-    const {users, isLoading, filter, edit, idFromSquad, savedSquad, ids} = this.state;
-    const visibleHeroes = getVisibleHeroes(users, filter, ids);
+    const {users, isLoading, filter, edit, idFromSquad, savedSquad, idFromList} = this.state;
+    const visibleHeroes = getVisibleHeroes(users, filter, idFromList);
     const visibleSquad = getVisibleSquad(users, idFromSquad);
 
     console.log("APP");

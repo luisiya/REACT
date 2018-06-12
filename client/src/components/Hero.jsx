@@ -12,7 +12,7 @@ export default class Hero extends Component {
     name: PropTypes.string.isRequired,
     deleteHero: PropTypes.func,
     addToSquad: PropTypes.func,
-    edit: PropTypes.string,
+    value: PropTypes.string,
   };
 
   state = { isBeingEdited: false, users:[] };
@@ -28,7 +28,7 @@ export default class Hero extends Component {
   render(){
 
     const { name } = this.props;
-    const { edit } = this.props;
+    const { value } = this.props;
     const { id } = this.props;
     const { isBeingEdited } = this.state;
 
@@ -46,7 +46,7 @@ export default class Hero extends Component {
             <div className={styles.actions}>
               <IconButton  onClick={() =>this.props.deleteHero(id)} text="&#10006;" about="Delete_Hero"/>
               <IconButton onClick={this.handleInfo} text="&#9937;" about="About_Hero"/>
-              {edit === "true" ? (
+              {value === "true" ? (
                 <span></span>
                   )
               :

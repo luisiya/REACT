@@ -8,16 +8,16 @@
 .actions {
   display: flex;
 }
-input
-{
+
+input {
   display: none;
 }
 
-.form select{
+.form select {
   /*font-size: 100%;*/
   width: 70%;
-  margin:20px 180px 0 40px ;
-  height:30px;
-  border:none;
+  margin: 20px 180px 0 40px;
+  height: 30px;
+  border: none;
   border-bottom: darkgrey solid;
 }

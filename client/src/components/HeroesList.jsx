@@ -7,22 +7,20 @@ const HeroesList = ({ value, users, ...props }) => (
   <ul className={styles.list}>
     {users.map(user => (
       <li key={user.id} className={styles.item}>
-        <Hero edit={value} {...user} {...props} />
+        <Hero value={value} {...user} {...props} />
       </li>
     ))}
   </ul>
 );
 
 HeroesList.propTypes = {
-  value:PropTypes.string,
+  value:PropTypes.string.isRequired,
   users: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };
-HeroesList.defaultProps = {
-  value:'false'
-}
+
 
 export default HeroesList;

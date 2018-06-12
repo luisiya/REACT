@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
-const IconButton = ({ text, disabled, onClick, type, about }) => {
+const IconButton = ({text, disabled, onClick, type, about}) => {
   const btnCls = disabled ? styles.disabled : styles.button;
 
   return (
-    <button className={btnCls} type={type} onClick={onClick} title={about} >
+    <button className={btnCls} type={type} onClick={onClick} title={about}>
       {text}
     </button>
   );
@@ -22,10 +22,11 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
-  onClick: () => {},
+  onClick: () => {
+  },
   disabled: false,
   type: 'button',
-  title:'click'
+  title: 'click'
 
 };
 

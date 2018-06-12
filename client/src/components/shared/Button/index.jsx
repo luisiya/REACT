@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
-const Button = ({ text, disabled, onClick, type }) => {
+const Button = ({text, disabled, onClick, type}) => {
   const btnCls = disabled ? styles.disabled : styles.button;
 
   return (
@@ -20,7 +20,8 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  onClick: () => {},
+  onClick: () => {
+  },
   disabled: false,
   type: 'button',
 };

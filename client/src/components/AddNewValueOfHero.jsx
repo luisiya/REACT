@@ -10,8 +10,11 @@ import CreateSelectOptions from './CreateSelectOptions';
 export default class AddNewValueOfHero extends Component {
   static propTypes = {
 
-    addNewHero: PropTypes.func.isRequired
+    addNewHero: PropTypes.func
 
+  };
+  static defaultProps ={
+    addNewHero:() => {}
   };
   state = {
 
@@ -22,7 +25,7 @@ export default class AddNewValueOfHero extends Component {
      };
 
 
-  addNewNameHero = (e) =>{
+  addNewHero = (e) =>{
 
   const newName = e.target.value;
   this.setState({name: newName})
@@ -58,7 +61,7 @@ export default class AddNewValueOfHero extends Component {
 
       <form className={styles.form} >
         <div>
-        <Input name="text"  placeholder="New hero..." onChange={this.addNewNameHero}/>
+        <Input name="text"  placeholder="New hero..." onChange={this.addNewHero}/>
         </div>
         <div>
           <CreateSelectOptions number="10" title="Strength" onChange={this.addNewStrength}/>
