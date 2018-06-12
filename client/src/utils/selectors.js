@@ -9,12 +9,3 @@ users.filter(user => idFromSquad.includes(user.id));
 
 
 
-
-
-// readySquad
-// export const getVisibleReadySquad = (users, idFromSquad) =>
-//
-// users.filter(user => idFromSquad.includes(user.id));
-export const x = 10;
-
-

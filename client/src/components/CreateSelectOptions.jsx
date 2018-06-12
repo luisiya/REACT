@@ -30,8 +30,6 @@ CreateSelectOptions.propTypes = {
 
 CreateSelectOptions.defaultProps = {
   onChange: () => {},
-
-
 };
 
 

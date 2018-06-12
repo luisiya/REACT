@@ -2,34 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-
-const CalculateHeroStats = ({ users, idFromSquad}) => (
+const CalculateHeroStats = ({users, idFromSquad}) => (
 
   <div className="TotalInfo">
 
-        <p style={{ textAlign: 'center' }}>
+    <p style={{textAlign: 'center'}}>
 
-          strength :
+      strength :
 
-          {idFromSquad.length > 0  ?
-            users.filter(user => idFromSquad.includes(user.id)).reduce(
+      {idFromSquad.length > 0 ?
+        users.filter(user => idFromSquad.includes(user.id)).reduce(
           (totals, p) => (Number(totals) + Number(p.strength)),
           0) : 0}
-        </p>
-        <p style={{ textAlign: 'center' }}>
-         intelligence : {
-          idFromSquad.length > 0  ?
-            users.filter(user => idFromSquad.includes(user.id)).reduce(
+    </p>
+    <p style={{textAlign: 'center'}}>
+      intelligence : {
+      idFromSquad.length > 0 ?
+        users.filter(user => idFromSquad.includes(user.id)).reduce(
           (totals, p) => (Number(totals) + Number(p.intelligence) ),
           0) : 0}
-      </p>
-      <p style={{ textAlign: 'center' }}>
+    </p>
+    <p style={{textAlign: 'center'}}>
       speed : {
-        idFromSquad.length > 0  ?
-          users.filter(user => idFromSquad.includes(user.id)).reduce(
-        (totals, p) => (Number(totals) + Number(p.speed) ),
-        0) : 0}
-      </p>
+      idFromSquad.length > 0 ?
+        users.filter(user => idFromSquad.includes(user.id)).reduce(
+          (totals, p) => (Number(totals) + Number(p.speed) ),
+          0) : 0}
+    </p>
   </div>
 );
 

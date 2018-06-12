@@ -43,3 +43,6 @@
 .hero button:nth-child(3):hover{
   background-color: firebrick;
 }
+.readySquad button{
+  border-radius: 100px;
+}

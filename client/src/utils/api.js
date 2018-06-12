@@ -35,7 +35,7 @@ export const getDataFromSquad = () =>
 .catch(handlePromiseError);
 
 
-export const getSquadFromData = () =>
+export const getDataFromSquads = () =>
   axios
     .get('/api/squads')
     .then(response =>
@@ -71,7 +71,7 @@ export const deleteHero = id =>
     )
     .catch(handlePromiseError);
 
-export const deleteHeroFromSquad = id =>
+export const deleteSquad = id =>
   axios
     .delete(`/api/squads/${id}`)
     .then(response =>
