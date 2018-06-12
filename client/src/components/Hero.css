@@ -27,22 +27,27 @@
   width: 1px;
 }
 
-.hero button{
-   border-radius:100%;
+.hero button {
+  border-radius: 100%;
 
- }
-.hero button:nth-child(2){
-   background-color: yellowgreen;
- }
-.hero button:nth-child(2):hover{
+}
+
+.hero button:nth-child(2) {
+  background-color: yellowgreen;
+}
+
+.hero button:nth-child(2):hover {
   background-color: green;
 }
-.hero button:nth-child(3){
+
+.hero button:nth-child(3) {
   background-color: lightcoral;
 }
-.hero button:nth-child(3):hover{
+
+.hero button:nth-child(3):hover {
   background-color: firebrick;
 }
-.readySquad button{
+
+.readySquad button {
   border-radius: 100px;
 }

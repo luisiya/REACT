@@ -14,7 +14,6 @@ input {
 }
 
 .form select {
-  /*font-size: 100%;*/
   width: 70%;
   margin: 20px 180px 0 40px;
   height: 30px;

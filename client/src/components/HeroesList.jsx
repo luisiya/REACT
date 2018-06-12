@@ -14,7 +14,7 @@ const HeroesList = ({ value, users, ...props }) => (
 );
 
 HeroesList.propTypes = {
-  value:PropTypes.string.isRequired,
+  value:PropTypes.string,
   users: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -22,5 +22,8 @@ HeroesList.propTypes = {
   ).isRequired,
 };
 
+HeroesList.defaultProps ={
+  value:""
+}
 
 export default HeroesList;

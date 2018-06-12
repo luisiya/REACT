@@ -5,8 +5,8 @@ const CreateSelectOptions = ({ number , title , onChange}) => (
 
 
   <div className="selectInput">
-    <select className="valueOfNewHero" name="text" onChange={onChange}>
-      <option selected disabled>{title}</option>
+    <select  className="valueOfNewHero" name="text" onChange={onChange}>
+      <option >{title}</option>
       {
         Array.from({ length: number }, (v, k) => k).map(arr =>(
         <option key={arr}>{arr}</option>
@@ -30,6 +30,7 @@ CreateSelectOptions.propTypes = {
 
 CreateSelectOptions.defaultProps = {
   onChange: () => {},
+
 };
 
 

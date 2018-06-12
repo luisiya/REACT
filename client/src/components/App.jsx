@@ -12,7 +12,6 @@ import Button from './shared/Button';
 import AddNewValueOfHero from './AddNewValueOfHero';
 import SavedSquadState from './SavedSquadState';
 
-
 class App extends Component {
 
   state = {
@@ -105,13 +104,10 @@ class App extends Component {
     this.setState(state => ({
       idFromSquad: state.idFromSquad.filter(user => user !== id),
       idFromList: state.idFromList.filter(hero => hero !== id),
-
     }));
-
   };
 
   savedSquad = () => {
-
 
     const hero = {};
     const readySquad = this.state.readySquad;
@@ -172,11 +168,7 @@ class App extends Component {
     const {users, isLoading, filter, edit, idFromSquad, savedSquad, idFromList} = this.state;
     const visibleHeroes = getVisibleHeroes(users, filter, idFromList);
     const visibleSquad = getVisibleSquad(users, idFromSquad);
-
-    console.log("APP");
-    console.log(this.state);
-
-
+    console.log(this.state)
     return (
 
       <div className={styles.container}>

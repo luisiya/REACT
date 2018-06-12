@@ -40,10 +40,7 @@ CalculateHeroStats.propTypes = {
     }).isRequired,
   ).isRequired,
   idFromSquad: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    }).isRequired,
-  ).isRequired,
+    PropTypes.number).isRequired,
 
 };
 
