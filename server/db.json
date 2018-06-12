@@ -55,13 +55,6 @@
       "intelligence": "",
       "speed": "",
       "id": 19
-    },
-    {
-      "name": "Superman",
-      "strength": 1,
-      "intelligence": 2,
-      "speed": 3,
-      "id": 20
     }
   ],
   "squads": [
@@ -246,113 +239,6 @@
         "spd": 5
       },
       "id": 11
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        },
-        {
-          "name": "Robot",
-          "strength": 1,
-          "intelligence": 1,
-          "speed": 3,
-          "id": 17
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        }
-      ],
-      "stats": {
-        "str": 6,
-        "int": 5,
-        "spd": 10
-      },
-      "id": 12
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        },
-        {
-          "name": "Robot",
-          "strength": 1,
-          "intelligence": 1,
-          "speed": 3,
-          "id": 17
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        },
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        }
-      ],
-      "stats": {
-        "str": 7,
-        "int": 7,
-        "spd": 13
-      },
-      "id": 13
-    },
-    {
-      "heroes": [
-        {
-          "name": "Superman",
-          "strength": 1,
-          "intelligence": 2,
-          "speed": 3,
-          "id": 20
-        },
-        {
-          "name": "Spidermen",
-          "strength": 2,
-          "intelligence": 1,
-          "speed": 2,
-          "id": 18
-        }
-      ],
-      "stats": {
-        "str": 3,
-        "int": 3,
-        "spd": 5
-      },
-      "id": 14
     }
   ]
 }

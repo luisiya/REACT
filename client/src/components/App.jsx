@@ -100,14 +100,13 @@ class App extends Component {
   };
 
   deleteHeroFromSquad = (id) => {
-console.log(id)
 
     this.setState(state => ({
-      idFromSquad: state.idFromSquad.filter((hero) => hero.id === id),
-      ids: state.ids.filter(hero => state.ids.includes(hero.id))
+      idFromSquad: state.idFromSquad.filter(user => user !== id),
+      ids: state.ids.filter(hero =>hero !== id),
 
     }));
-
+console.log(this.state.idFromSquad)
   };
 
   savedSquad = () => {
