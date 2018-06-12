@@ -168,7 +168,7 @@ class App extends Component {
     const {users, isLoading, filter, edit, idFromSquad, savedSquad, idFromList} = this.state;
     const visibleHeroes = getVisibleHeroes(users, filter, idFromList);
     const visibleSquad = getVisibleSquad(users, idFromSquad);
-    console.log(this.state)
+
     return (
 
       <div className={styles.container}>
