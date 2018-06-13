@@ -57,6 +57,7 @@ class App extends Component {
   };
 
   addNewHero = (hero) => {
+
     this.setState({isLoading: true});
     api.addNewHero(hero).then(({data, error}) => {
       if (error) {
@@ -70,6 +71,7 @@ class App extends Component {
       }));
 
     });
+
   };
 
   addToSquad = (id) => {
@@ -124,14 +126,11 @@ class App extends Component {
         return;
       }
 
-
       this.setState(state => ({
-
         idFromSquad: [],
         users: state.users.filter(user => state.idFromList.indexOf(user.id) === -1),
         savedSquad: [...state.savedSquad, data],
         isLoading: false,
-
       }));
 
     });

@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.css';
 
-const Input = ({ type, name, placeholder, onChange }) => (
+const Input = ({ type, name, placeholder, onChange, value }) => (
   <input
+    value={value}
     className={styles.input}
     type={type}
     name={name}
@@ -13,6 +14,7 @@ const Input = ({ type, name, placeholder, onChange }) => (
 );
 
 Input.propTypes = {
+  value:PropTypes.string.isRequired,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
