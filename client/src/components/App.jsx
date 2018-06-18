@@ -5,12 +5,13 @@ import {getVisibleHeroes, getVisibleSquad} from '../utils/selectors';
 import * as api from '../utils/api';
 import HeroesList from './HeroesList';
 import InlineMessage from './InlineMessage';
-import styles from './App.css';
 import HeroesFilter from './HeroesFilter';
 import CalculateHeroStats from './CalculateHeroStats';
 import Button from './shared/Button';
 import AddNewValueOfHero from './AddNewValueOfHero';
 import SavedSquadState from './SavedSquadState';
+import Container from './Container';
+import Grid from './Grid';
 
 class App extends Component {
 
@@ -27,11 +28,9 @@ class App extends Component {
   componentDidMount() {
     this.getUserFromData();
   };
-
   onFilterChange = (str) => {
     this.setState({filter: str.charAt(0).toUpperCase() + str.slice(1)});
   };
-
   getUserFromData = () => {
     this.setState({isLoading: true});
     api.getUserFromData().then(({data, error}) => {
@@ -43,7 +42,6 @@ class App extends Component {
       this.setState({users: data, isLoading: false}, this.getDataFromSquads);
     });
   };
-
   getDataFromSquads = () => {
     this.setState({isLoading: true});
     api.getDataFromSquads().then(({data, error}) => {
@@ -55,7 +53,6 @@ class App extends Component {
       this.setState({savedSquad: data, isLoading: false});
     });
   };
-
   addNewHero = (hero) => {
 
     this.setState({isLoading: true});
@@ -73,7 +70,6 @@ class App extends Component {
     });
 
   };
-
   addToSquad = (id) => {
 
 
@@ -84,7 +80,6 @@ class App extends Component {
       readySquad: [...state.readySquad, hero],
     }));
   };
-
   deleteHeroFromList = (id) => {
 
     this.setState({isLoading: true});
@@ -100,7 +95,6 @@ class App extends Component {
       }));
     });
   };
-
   deleteHeroFromSquad = (id) => {
 
     this.setState(state => ({
@@ -108,7 +102,6 @@ class App extends Component {
       idFromList: state.idFromList.filter(hero => hero !== id),
     }));
   };
-
   savedSquad = () => {
 
     const hero = {};
@@ -151,8 +144,6 @@ class App extends Component {
       }));
     });
   };
-
-
   ResetSquad = () => {
     this.setState({
 
@@ -160,7 +151,9 @@ class App extends Component {
       idFromList: [],
 
     });
-  }
+  };
+
+
 
   render() {
 
@@ -169,56 +162,60 @@ class App extends Component {
     const visibleSquad = getVisibleSquad(users, idFromSquad);
 
     return (
+      <Container>
+        <Grid>
+          <div className="inputNewHero">
+            <h2 style={{textAlign: 'center'}}>Create Hero</h2>
+            <AddNewValueOfHero addNewHero={this.addNewHero}/>
+          </div>
 
-      <div className={styles.container}>
-        <div className="inputNewHero">
-          <h2 style={{textAlign: 'center'}}>Create Hero</h2>
-          <AddNewValueOfHero addNewHero={this.addNewHero}/>
-        </div>
-        <div className="listOfHeroes">
-          <h2 style={{textAlign: 'center'}}>Heroes</h2>
-          {isLoading && <Loader width={80} height={80}/>}
-          <HeroesFilter onFilterChange={this.onFilterChange} filter={filter} value={edit}/>
-          {users.length > 0 ? (
-            <HeroesList
-              users={visibleHeroes}
-              deleteHero={this.deleteHeroFromList}
-              addToSquad={this.addToSquad}
-            />
-          ) : (
-
-            <InlineMessage text="You have zero users"/>
-          )}
-        </div>
-        <div className="Squad_editor" style={{width: '500px', margin: '0 0 0 10px'}}>
-          <h2 style={{textAlign: 'center'}}>Squad editor</h2>
-          <Button type="submit" onClick={this.savedSquad} text="Save Squad"/>
-          <Button type="submit" onClick={this.ResetSquad} text="Reset"/>
-
-          {isLoading && <Loader width={80} height={80}/>}
-          {users.length > 0 ? (
-            <div>
-              <CalculateHeroStats users={users} idFromSquad={idFromSquad}/>
-              <HeroesList value="true"
-                          users={visibleSquad}
-                          deleteHero={this.deleteHeroFromSquad}
+          <div className="listOfHeroes">
+            <h2 style={{textAlign: 'center'}}>Heroes</h2>
+            {isLoading && <Loader width={80} height={80}/>}
+            <HeroesFilter onFilterChange={this.onFilterChange} filter={filter} value={edit}/>
+            {users.length > 0 ? (
+              <HeroesList
+                users={visibleHeroes}
+                deleteHero={this.deleteHeroFromList}
+                addToSquad={this.addToSquad}
               />
-            </div>
+            ) : (
 
-          ) : (
-            <InlineMessage text="You have zero users"/>
-          )}
+              <InlineMessage text="You have zero users"/>
+            )}
+          </div>
 
-        </div>
+          <div className="Squad_editor" style={{margin: '0 0 0 10px'}}>
+            <h2 style={{textAlign: 'center'}}>Squad editor</h2>
+            <Button type="submit" onClick={this.savedSquad} text="Save Squad"/>
+            <Button type="submit" onClick={this.ResetSquad} text="Reset"/>
 
-        <div className="Squad_stats" style={{width: '400px'}}>
-          <h2 style={{textAlign: 'center'}}>Saved squad</h2>
-          {isLoading && <Loader width={80} height={80}/>}
-          <SavedSquadState savedSquad={savedSquad}
-                           deleteSquad={this.deleteSquad}
-          />
-        </div>
-      </div>
+            {isLoading && <Loader width={80} height={80}/>}
+            {users.length > 0 ? (
+              <div>
+                <CalculateHeroStats users={users} idFromSquad={idFromSquad}/>
+                <HeroesList value="true"
+                            users={visibleSquad}
+                            deleteHero={this.deleteHeroFromSquad}
+                />
+              </div>
+
+            ) : (
+              <InlineMessage text="You have zero users"/>
+            )}
+
+          </div>
+
+          <div className="Squad_stats">
+            <h2 style={{textAlign: 'center'}}>Saved squad</h2>
+            {isLoading && <Loader width={80} height={80}/>}
+            <SavedSquadState savedSquad={savedSquad}
+                             deleteSquad={this.deleteSquad}
+            />
+          </div>
+        </Grid>
+
+      </Container>
     );
   }
 }
